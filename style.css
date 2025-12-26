@@ -44,8 +44,12 @@ img { max-width: 100%; display: block; }
 /* --- HERO --- */
 .hero {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1590247813693-5541d1c609fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-    display: flex; align-items: center; position: relative; color: var(--white);
+    /* Updated Image: Oil Refinery / Industrial Complex */
+    background: url('https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+    color: var(--white);
 }
 .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7)); }
 .hero-content { position: relative; z-index: 2; max-width: 700px; }
