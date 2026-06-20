@@ -120,6 +120,52 @@ img { max-width: 100%; display: block; }
     color: #94a3b8;
 }
 
+/* --- GALLERY ---
+   Tile width is capped at 340px so the lowest-resolution source
+   (460x276) is never stretched past a safe upscale ratio, while
+   higher-res images get downscaled and stay crisp. object-fit: cover
+   crops every tile to the same 4:3 ratio so the grid stays uniform. */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-width: 340px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+    filter: saturate(1.02);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 -40px 40px -20px rgba(15, 23, 42, 0.25);
+    pointer-events: none;
+}
+
 /* --- STATS --- */
 .stats { background: var(--primary); padding: 60px 0; color: var(--white); border-top: 1px solid rgba(255,255,255,0.1); }
 .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center; }
